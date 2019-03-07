@@ -1,0 +1,28 @@
+import React, { Component } from 'react'
+import axios from 'axios'
+const app_key = '62281d75f8027bdd0e7541dc15ad2edb'
+
+export default function App() {
+  // const [newLanguage, setNewLanguage] = useState
+
+  const translateSentence = () => {
+    const URL = 'https://developers.kakao.com/docs/restapi/translation#번역'
+    axios
+      .get(URL, {
+        headers: {
+          Authorization: 'KakaoAK 62281d75f8027bdd0e7541dc15ad2edb'
+        }
+      })
+      .then(resp => {
+        console.log({ resp })
+      })
+  }
+
+  return (
+    <>
+      <h1>SDG Translator</h1>
+      <input key="translated_text" type="string" />
+      <button onClick={translateSentence}>Translation</button>
+    </>
+  )
+}
